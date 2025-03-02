@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import { MessageSquare, Github } from 'lucide-react';
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { MessageSquare, Github } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,38 +15,38 @@ export default function Home() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Hero animations
-      gsap.from('.hero-content > *', {
+      gsap.from(".hero-content > *", {
         y: 50,
         opacity: 0,
         duration: 1,
         stagger: 0.2,
-        ease: 'power3.out',
+        ease: "power3.out",
         delay: 0.5,
       });
 
-      gsap.from('.hero-image', {
-        scale: 0.8,
-        opacity: 0,
-        duration: 1.5,
-        ease: 'power3.out',
-        delay: 1,
-      });
+      // gsap.from(".hero-image", {
+      //   scale: 0.8,
+      //   opacity: 0,
+      //   duration: 1.5,
+      //   ease: "power3.out",
+      //   delay: 1,
+      // });
 
       // Section animations
-      const sections = document.querySelectorAll('section');
-      sections.forEach(section => {
+      const sections = document.querySelectorAll("section");
+      sections.forEach((section) => {
         gsap.from(section.children, {
           scrollTrigger: {
             trigger: section,
-            start: 'top 80%',
-            end: 'bottom 20%',
-            toggleActions: 'play none none reverse',
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
           },
           y: 50,
           opacity: 0,
           duration: 1,
           stagger: 0.2,
-          ease: 'power3.out',
+          ease: "power3.out",
         });
       });
     }, heroRef);
@@ -57,10 +57,12 @@ export default function Home() {
   return (
     <div ref={heroRef}>
       {/* Hero Section */}
-      <section id="home" className="container mx-auto px-8 lg:px-16 min-h-screen flex items-center">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
+      <section id="home" className="relative px-8 lg:px-16  flex items-center">
+        <div className="container mx-auto flex flex-col lg:flex-row items-center gap-16 ">
           <div className="flex-1 hero-content">
-            <p className="text-xl mb-6 text-[#48A6A7]">👋 Hi, my name is Maxence, 18 & I am</p>
+            <p className="text-xl mb-6 text-[#48A6A7]">
+              👋 Hi, my name is Maxence, 18 & I am
+            </p>
             <h1 className="hero-title mb-8 text-[#2973B2]">
               Product Designer
               <br />
@@ -77,15 +79,14 @@ export default function Home() {
               Let's Talk
             </Button>
           </div>
-          
+
           <div className="flex-1 hero-image">
             <div className="rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+                src="https://plus.unsplash.com/premium_photo-1674904827855-2a8d8d5266ac?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDl8fHVpJTIwdXglMjBkZXNpZ25lcnxlbnwwfHwwfHx8MA%3D%3D"
                 alt="Misty waterfall"
-                width={600}
+                width={400}
                 height={400}
-                className="w-full h-auto object-cover"
               />
             </div>
           </div>
@@ -95,8 +96,11 @@ export default function Home() {
       {/* About Section */}
       <section id="about" className="container mx-auto px-8 lg:px-16 py-20">
         <h2 className="section-title">About me</h2>
-        <p className="section-subtitle">Here you can find a little bit about me. I am a passionate designer and developer!</p>
-        
+        <p className="section-subtitle">
+          Here you can find a little bit about me. I am a passionate designer
+          and developer!
+        </p>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="about-card">
             <div className="flex items-center gap-4 mb-6">
@@ -119,10 +123,10 @@ export default function Home() {
               <span className="text-sm">5 publics projects</span>
             </div>
           </div>
-          
+
           <div className="map-card">
             <Image
-              src="https://api.mapbox.com/styles/v1/mapbox/light-v10/static/2.3522,48.8566,5,0/800x400@2x?access_token=YOUR_MAPBOX_TOKEN"
+              src="https://plus.unsplash.com/premium_photo-1669075651725-e03a4b02da99?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDV8fHVpJTIwdXglMjBkZXNpZ25lcnxlbnwwfHwwfHx8MA%3D%3D"
               alt="Location"
               width={800}
               height={400}
@@ -138,10 +142,12 @@ export default function Home() {
               <p className="text-gray-600">Hover to download</p>
             </div>
           </div>
-          
+
           <div className="project-card">
             <div className="p-6">
-              <h3 className="text-xl font-bold mb-2">I am also a videographer</h3>
+              <h3 className="text-xl font-bold mb-2">
+                I am also a videographer
+              </h3>
               <p className="text-gray-600">Check out my content on youtube</p>
             </div>
           </div>
@@ -151,16 +157,37 @@ export default function Home() {
       {/* Skills Section */}
       <section id="skills" className="container mx-auto px-8 lg:px-16 py-20">
         <h2 className="section-title">My skills</h2>
-        <p className="section-subtitle">I enjoy creating unique and intuitive digital experiences by utilizing a variety of tools that I have mastered over my years of experience.</p>
-        
+        <p className="section-subtitle">
+          I enjoy creating unique and intuitive digital experiences by utilizing
+          a variety of tools that I have mastered over my years of experience.
+        </p>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
-            { name: 'Figma', experience: '6 years of experiences - 10 projects' },
-            { name: 'After Effects', experience: '2 years of experiences - 3 projects' },
-            { name: 'NodeJS', experience: '4 years of experiences - 5 projects' },
-            { name: 'JavaScript', experience: '6 years of experiences - 7 projects' },
-            { name: 'DaVinci Resolve', experience: '3 years of experiences - 4 projects' },
-            { name: 'Web Development', experience: '7 years of experiences - 9 projects' },
+            {
+              name: "Figma",
+              experience: "6 years of experiences - 10 projects",
+            },
+            {
+              name: "After Effects",
+              experience: "2 years of experiences - 3 projects",
+            },
+            {
+              name: "NodeJS",
+              experience: "4 years of experiences - 5 projects",
+            },
+            {
+              name: "JavaScript",
+              experience: "6 years of experiences - 7 projects",
+            },
+            {
+              name: "DaVinci Resolve",
+              experience: "3 years of experiences - 4 projects",
+            },
+            {
+              name: "Web Development",
+              experience: "7 years of experiences - 9 projects",
+            },
           ].map((skill, index) => (
             <div key={index} className="skill-card">
               <h3 className="text-xl font-bold mb-2">{skill.name}</h3>
@@ -173,25 +200,34 @@ export default function Home() {
       {/* Projects Section */}
       <section id="projects" className="container mx-auto px-8 lg:px-16 py-20">
         <h2 className="section-title">My projects</h2>
-        <p className="section-subtitle">Discover the projects I have been able to develop, manage, and design over the course of my experiences in recent years.</p>
-        
+        <p className="section-subtitle">
+          Discover the projects I have been able to develop, manage, and design
+          over the course of my experiences in recent years.
+        </p>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
             {
-              title: 'RealMemories',
-              description: 'Transform your BeReal into a personalized album with our editor. Delivered directly to your home.',
-              image: 'https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?ixlib=rb-4.0.3&fit=crop&w=800&h=400&q=80'
+              title: "RealMemories",
+              description:
+                "Transform your BeReal into a personalized album with our editor. Delivered directly to your home.",
+              image:
+                "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fHVpJTIwdXglMjBkZXNpZ25lcnxlbnwwfHwwfHx8MA%3D%3D",
             },
             {
-              title: 'Teranga App',
-              description: 'Teranga allows Discord users to create their own Discord application with a drag-and-drop editor.',
-              image: 'https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?ixlib=rb-4.0.3&fit=crop&w=800&h=400&q=80'
+              title: "Teranga App",
+              description:
+                "Teranga allows Discord users to create their own Discord application with a drag-and-drop editor.",
+              image:
+                "https://plus.unsplash.com/premium_photo-1678249204369-d7582731335d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTd8fHVpJTIwdXglMjBkZXNpZ25lcnxlbnwwfHwwfHx8MA%3D%3D",
             },
             {
-              title: 'Alumet Education',
-              description: 'Alumet is a digital workspace that brings together a set of tools for students and teachers.',
-              image: 'https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?ixlib=rb-4.0.3&fit=crop&w=800&h=400&q=80'
-            }
+              title: "Alumet Education",
+              description:
+                "Alumet is a digital workspace that brings together a set of tools for students and teachers.",
+              image:
+                "https://plus.unsplash.com/premium_photo-1731072641068-800588271b4e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAxfHx1aSUyMHV4JTIwZGVzaWduZXJ8ZW58MHx8MHx8fDA%3D",
+            },
           ].map((project, index) => (
             <div key={index} className="project-card">
               <Image
@@ -212,12 +248,22 @@ export default function Home() {
 
       {/* Companies Section */}
       <section className="container mx-auto px-8 lg:px-16 py-20">
-        <h2 className="text-2xl font-semibold text-center mb-12 text-[#2973B2]">COMPANY I WORKED WITH</h2>
+        <h2 className="text-2xl font-semibold text-center mb-12 text-[#2973B2]">
+          COMPANY I WORKED WITH
+        </h2>
         <div className="flex flex-wrap justify-center gap-16">
           <img src="/discord.svg" alt="Discord" className="h-10 company-logo" />
-          <img src="/alumet.svg" alt="Alumet Education" className="h-10 company-logo" />
+          <img
+            src="/alumet.svg"
+            alt="Alumet Education"
+            className="h-10 company-logo"
+          />
           <img src="/teranga.svg" alt="Teranga" className="h-10 company-logo" />
-          <img src="/real.svg" alt="Real Memories" className="h-10 company-logo" />
+          <img
+            src="/real.svg"
+            alt="Real Memories"
+            className="h-10 company-logo"
+          />
         </div>
       </section>
     </div>

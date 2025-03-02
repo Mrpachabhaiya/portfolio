@@ -3,17 +3,21 @@
 @tailwind utilities;
 
 :root {
-  --color-cream: #F7F4ED;
-  --color-light-blue: #B8D8DB;
-  --color-teal: #6BBCBD;
-  --color-blue: #4A8CC2;
+  --color-cream: #f7f4ed;
+  --color-light-blue: #b8d8db;
+  --color-teal: #6bbcbd;
+  --color-blue: #4a8cc2;
 }
 
 body {
   background-color: var(--color-cream);
-  color: #2C2C2C;
+  color: #2c2c2c;
 }
-
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
 .section-padding {
   padding-top: 6rem;
 }
@@ -28,7 +32,7 @@ body {
 .section-title {
   font-size: 3rem;
   font-weight: 700;
-  color: #2C2C2C;
+  color: #2c2c2c;
   margin-bottom: 1rem;
 }
 
@@ -145,13 +149,17 @@ body {
 }
 
 .skill-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, var(--color-light-blue), var(--color-teal));
+  background: linear-gradient(
+    45deg,
+    var(--color-light-blue),
+    var(--color-teal)
+  );
   opacity: 0;
   transition: all 0.5s ease;
 }
@@ -189,7 +197,11 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0));
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0)
+  );
   padding: 2rem;
   transform: translateY(100%);
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
